@@ -13,6 +13,7 @@ import Dashboard from './Pages/Dashboard/Dashboard';
 import MyExpenselist from './Pages/Dashboard/MyExpenselist';
 import Users from './Pages/Dashboard/Users';
 import RequireAdmin from './Pages/Login/RequireAdmin';
+import AllUserExpense from './Pages/Dashboard/AllUserExpense';
 
 function App() {
   return (
@@ -27,7 +28,7 @@ function App() {
         <Route path='/dashboard' element={<RequireAuth><Dashboard/></RequireAuth>}>
           <Route index element={<MyExpenselist/>}></Route>
           <Route path='users' element={<RequireAdmin><Users/></RequireAdmin>}></Route>
-          
+          <Route path='expenseall' element={<AllUserExpense/>}></Route>
         </Route>
         <Route path='/login' element={<Login/>}></Route>
         <Route path='/signup' element={<SignUp/>}></Route>

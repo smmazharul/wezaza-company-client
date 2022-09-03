@@ -10,7 +10,7 @@ const MyExpenselist = () => {
     const navigate = useNavigate()
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/expenselist?empoyeeEmail=${user.email}`, {
+            fetch(`https://young-fortress-58661.herokuapp.com/expenselist?empoyeeEmail=${user.email}`, {
               method: 'GET',
               headers: {
                   'authorization': `Bearer ${localStorage.getItem('accessToken')}`
