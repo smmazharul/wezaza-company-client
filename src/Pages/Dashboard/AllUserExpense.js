@@ -5,6 +5,7 @@ import { useState } from 'react';
 const AllUserExpense = () => {
     const [allUserExpense,setAllUserExpense]=useState([]);
     const [displayProducts, setDisplayProducts] = useState([]);
+    console.log(allUserExpense)
     useEffect(()=>{
         fetch('http://localhost:5000/expenseall')
         .then(res=>res.json())
@@ -15,15 +16,20 @@ const AllUserExpense = () => {
 
     const handleSearch = event => {
         const searchText = event.target.value;
-
         const matchedProducts = allUserExpense.filter(expense => expense.empoyeeName?.toLowerCase().includes(searchText.toLowerCase()));
-        console.log(matchedProducts)
-
         setDisplayProducts(matchedProducts);
     }
+    const handleSearchDate = event => {
+        const searchText = event.target.value;
+        const matchedProducts = allUserExpense.filter(expense => expense.date?.toLowerCase().includes(searchText.toLowerCase()));
+        setDisplayProducts(matchedProducts);
+    }
+
     return (
         <div className='mt-2'>
             <input type="text" onChange={handleSearch} placeholder="Search by Employee Name" className="mb-2 input   w-full max-w-xs "  />
+            <input type="text" onChange={handleSearchDate} placeholder="Search by Employee Name" className="mb-2 input   w-full max-w-xs "  />
+            
             <div class="overflow-x-auto">
   <table class="table w-full">
     {/* <!-- head --> */}
