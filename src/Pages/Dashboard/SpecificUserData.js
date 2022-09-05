@@ -28,7 +28,7 @@ const SpecificUserData = () => {
 
 
     const handledata=(email)=>{
-      fetch(`http://localhost:5000/expenselist/expense?empoyeeEmail=${email}`)
+      fetch(`https://young-fortress-58661.herokuapp.com/expenselist/expense?empoyeeEmail=${email}`)
       .then(res=>res.json())
       .then(data=>setUserExpense(data))
   }

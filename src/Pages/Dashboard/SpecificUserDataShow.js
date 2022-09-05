@@ -8,7 +8,7 @@ const SpecificUserDataShow = () => {
   const [allUserExpense, setAllUserExpense] = useState([]);
   const [displayProducts, setDisplayProducts] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/expenselist/expense?empoyeeEmail=${email}`)
+    fetch(`https://young-fortress-58661.herokuapp.com/expenselist/expense?empoyeeEmail=${email}`)
       .then((res) => res.json())
       .then((data) => {
         setAllUserExpense(data);
