@@ -8,6 +8,7 @@ const AvailableExpense = ({ date }) => {
   const [expense, setExpense] = useState(null);
   useEffect(() => {
     fetch("https://young-fortress-58661.herokuapp.com/expense")
+    // fetch('https://wezaza.smmazharul.com/expense')
       .then((res) => res.json())
       .then((data) => setExpenseCatagories(data));
   }, []);
