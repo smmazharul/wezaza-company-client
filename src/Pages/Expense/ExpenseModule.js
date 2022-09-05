@@ -2,7 +2,7 @@ import React from "react";
 import { format } from "date-fns";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
 
 const ExpenseModule = ({ date, expense ,setExpense}) => {
   const { name,_id} = expense;
@@ -35,7 +35,7 @@ const ExpenseModule = ({ date, expense ,setExpense}) => {
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data);
+        // console.log(data);
         setExpense(null)
       })
 

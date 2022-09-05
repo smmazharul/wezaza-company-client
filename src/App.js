@@ -14,6 +14,9 @@ import MyExpenselist from './Pages/Dashboard/MyExpenselist';
 import Users from './Pages/Dashboard/Users';
 import RequireAdmin from './Pages/Login/RequireAdmin';
 import AllUserExpense from './Pages/Dashboard/AllUserExpense';
+import FilterExpenses from './Pages/Dashboard/SpecificUserData';
+import SpecificUserData from './Pages/Dashboard/SpecificUserData';
+import SpecificUserDataShow from './Pages/Dashboard/SpecificUserDataShow';
 
 function App() {
   return (
@@ -29,7 +32,10 @@ function App() {
           <Route index element={<MyExpenselist/>}></Route>
           <Route path='users' element={<RequireAdmin><Users/></RequireAdmin>}></Route>
           <Route path='expenseall' element={<AllUserExpense/>}></Route>
+          <Route path='specificuser' element={<SpecificUserData/>}></Route>
+          
         </Route>
+        <Route path='userDataShow/:email' element={<SpecificUserDataShow/>}></Route>
         <Route path='/login' element={<Login/>}></Route>
         <Route path='/signup' element={<SignUp/>}></Route>
       </Routes>

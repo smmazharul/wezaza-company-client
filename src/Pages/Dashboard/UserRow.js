@@ -1,8 +1,12 @@
 import React from 'react';
+import { useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
-const UserRow = ({ user, refetch }) => {
+const UserRow = ({ user, refetch,index }) => {
+    
     const { email, role } = user;
+    const [userExpense,setUserExpense]=useState([])
     const makeAdmin = () => {
         fetch(`https://young-fortress-58661.herokuapp.com/user/admin/${email}`, {
             method: 'PUT',
@@ -23,13 +27,21 @@ const UserRow = ({ user, refetch }) => {
 
             })
     }
+
+  
     return (
+        <>
         <tr>
-            <th>1</th>
+            <th>{index + 1}</th>
             <td>{email}</td>
-            <td>{role !== 'admin' ? <button onClick={makeAdmin} class="btn btn-xs">Make Admin</button> : <h1 className='text-xl font-bold text-secondary'>Admin</h1>} </td>
-            <td><button class="btn btn-xs">Remove User</button></td>
+            <td>{role !== 'admin' ? <button onClick={makeAdmin} className="btn btn-xs">Make Admin</button> : <h1 className='text-xl font-bold text-secondary'>Admin</h1>} </td>
+            {/* <td><button onClick={()=>handledata(id)}>View</button></td> */}
+            <td><button className="btn btn-xs">Remove User</button></td>
         </tr>
+
+        
+        
+        </>
     );
 };
 
