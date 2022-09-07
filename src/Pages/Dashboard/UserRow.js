@@ -1,12 +1,10 @@
 import React from 'react';
-import { useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+
 import { toast } from 'react-toastify';
 
 const UserRow = ({ user, refetch,index }) => {
-    
     const { email, role } = user;
-    const [userExpense,setUserExpense]=useState([])
+    
     const makeAdmin = () => {
         fetch(`https://young-fortress-58661.herokuapp.com/user/admin/${email}`, {
             method: 'PUT',

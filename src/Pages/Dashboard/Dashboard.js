@@ -23,12 +23,13 @@ const Dashboard = () => {
     <label for="dashboard-sidebar" className="drawer-overlay"></label> 
     <ul className="menu p-4 overflow-y-auto w-60 bg-base-100 text-base-content">
       {/* <!-- Sidebar content here --> */}
-      <li><Link to='/dashboard'>My Expenses</Link></li>
+      <li className='text-secondary bg-accent rounded-md mt-2'><Link to='/dashboard'>My Expenses</Link></li>
+      <li className='text-secondary bg-accent rounded-md mt-2'><Link to='/dashboard/depositme'>Deposit Me</Link></li>
       
-       {admin && <>
-       <li><Link to='/dashboard/users'>All Users</Link></li>
-       <li><Link to='/dashboard/expenseall'>All Expense</Link></li>
-       <li><Link to='/dashboard/specificuser'>Specific users</Link></li>
+       {admin && < >
+       <li className='text-secondary bg-accent rounded-md mt-2'><Link to='/dashboard/users'>All Users</Link></li>
+       <li className='text-secondary bg-accent rounded-md mt-2'><Link to='/dashboard/expenseall'>All Expense</Link></li>
+       <li className='text-secondary bg-accent rounded-md mt-2'><Link to='/dashboard/specificuser'>User Expenses</Link></li>
        </>
         }
       

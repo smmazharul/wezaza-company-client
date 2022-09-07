@@ -6,6 +6,7 @@ import { signOut } from 'firebase/auth';
 
 const MyExpenselist = () => {
     const [expenselist,setEpenselist]=useState([]);
+    const [depositMe,setDepositMe]=useState([]);
     const [user] = useAuthState(auth);
     const navigate = useNavigate()
     useEffect(() => {
@@ -46,8 +47,51 @@ const MyExpenselist = () => {
         total=total+subTotal
 
     }
+
+    useEffect(() => {
+      if (user) {
+          fetch(`http://localhost:5000/depositamount?empoyeeEmail=${user.email}`, {
+            method: 'GET',
+            headers: {
+                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+              // .then(res =>{
+              //   if(res.status===401 || res.status===403){
+
+              //   }
+              //   return res.json()
+              //   })
+              // .then(data => setEpenselist(data));
+              .then(res => {
+                // console.log('res', res);
+                if (res.status === 401 || res.status === 403) {
+                    signOut(auth);
+                    localStorage.removeItem('accessToken');
+                    navigate('/');
+                }
+                return res.json()
+            })
+            .then(data => {
+
+              setDepositMe(data);
+            });
+      }
+  }, [user])
+  let deptotal=0;
+  for(const cost of depositMe ){
+      const subtotal =parseInt(cost.amount)
+      deptotal=deptotal+subtotal
+
+  }
+
+
+
     return (
         <div className='mt-2'>
+          
+          <h1 className='flex flex-row-reverse text-secondary bg-accent text-2xl p-2 rounded-md mt-2'>Present Balance : {deptotal-total} BDT</h1>
+         
             <div className="overflow-x-auto">
   <table className="table w-full">
     {/* <!-- head --> */}

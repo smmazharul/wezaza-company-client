@@ -8,7 +8,7 @@ const ExpenseModule = ({ date, expense ,setExpense}) => {
   const { name,_id} = expense;
   var today=new Date()
   const time = today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
-  const [user, loading, error] = useAuthState(auth);
+  const [user] = useAuthState(auth);
  
   const formattedDate=format(date,'PP')
   const handleExpense = (e) => {

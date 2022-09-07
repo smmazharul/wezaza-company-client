@@ -17,6 +17,7 @@ import AllUserExpense from './Pages/Dashboard/AllUserExpense';
 import FilterExpenses from './Pages/Dashboard/SpecificUserData';
 import SpecificUserData from './Pages/Dashboard/SpecificUserData';
 import SpecificUserDataShow from './Pages/Dashboard/SpecificUserDataShow';
+import DepositedFrom from './Pages/Dashboard/DepositedFrom';
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
         </RequireAuth>}></Route>
         <Route path='/dashboard' element={<RequireAuth><Dashboard/></RequireAuth>}>
           <Route index element={<MyExpenselist/>}></Route>
+          <Route path='depositme' element={<DepositedFrom/>}></Route>
           <Route path='users' element={<RequireAdmin><Users/></RequireAdmin>}></Route>
           <Route path='expenseall' element={<AllUserExpense/>}></Route>
           <Route path='specificuser' element={<SpecificUserData/>}></Route>
