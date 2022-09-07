@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link,  } from 'react-router-dom';
-import { BeakerIcon, CurrencyBangladeshiIcon, MoonIcon } from '@heroicons/react/24/solid'
+import { CurrencyBangladeshiIcon } from '@heroicons/react/24/solid'
 
 const SpecificUser = ({ user,index ,handledata}) => {
     const { email } = user;
@@ -10,8 +10,8 @@ const SpecificUser = ({ user,index ,handledata}) => {
             <th className='text-secondary'>{index + 1}</th>
             <td >{email}</td>
             {/* <td><button onClick={()=>handledata(id)}>View</button></td> */}
-            <td><Link to={`/userDataShow/${email}`}><button className="btn btn-xs" onClick={()=>handledata(email)}><CurrencyBangladeshiIcon className="h-6 w-6 text-blue-500"/></button></Link></td>
-            <td><Link to={`/userDataShow/${email}`}><button className="btn btn-xs" onClick={()=>handledata(email)}><CurrencyBangladeshiIcon className="h-6 w-6 text-blue-500"/></button></Link></td>
+            <td><Link to={`/dashboard/userDataShow/${email}`}><button className="btn btn-xs" onClick={()=>handledata(email)}><CurrencyBangladeshiIcon className="h-6 w-6 text-blue-500"/></button></Link></td>
+            <td><Link to={`/dashboard/userDataShow/${email}`}><button className="btn btn-xs" onClick={()=>handledata(email)}><CurrencyBangladeshiIcon className="h-6 w-6 text-blue-500"/></button></Link></td>
         </tr>
 
         

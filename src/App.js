@@ -18,6 +18,7 @@ import FilterExpenses from './Pages/Dashboard/SpecificUserData';
 import SpecificUserData from './Pages/Dashboard/SpecificUserData';
 import SpecificUserDataShow from './Pages/Dashboard/SpecificUserDataShow';
 import DepositedFrom from './Pages/Dashboard/DepositedFrom';
+import MyexpenseUpdate from './Pages/Dashboard/MyexpenseUpdate';
 
 function App() {
   return (
@@ -31,13 +32,14 @@ function App() {
         </RequireAuth>}></Route>
         <Route path='/dashboard' element={<RequireAuth><Dashboard/></RequireAuth>}>
           <Route index element={<MyExpenselist/>}></Route>
+          <Route path='/dashboard/myexpense/:id' element={<MyexpenseUpdate/>}></Route>
           <Route path='depositme' element={<DepositedFrom/>}></Route>
           <Route path='users' element={<RequireAdmin><Users/></RequireAdmin>}></Route>
           <Route path='expenseall' element={<AllUserExpense/>}></Route>
-          <Route path='specificuser' element={<SpecificUserData/>}></Route>
-          
+          <Route path='specificuser' element={<SpecificUserData/>}></Route>  
+          <Route path='/dashboard/userDataShow/:email' element={<SpecificUserDataShow/>}></Route>
         </Route>
-        <Route path='userDataShow/:email' element={<SpecificUserDataShow/>}></Route>
+       
         <Route path='/login' element={<Login/>}></Route>
         <Route path='/signup' element={<SignUp/>}></Route>
       </Routes>

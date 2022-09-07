@@ -25,7 +25,7 @@ const handleSubmitDepositme=e=>{
         
       }
   
-      fetch('http://localhost:5000/depositamount', {
+      fetch('https://young-fortress-58661.herokuapp.com/depositamount', {
         method: "POST",
         headers: {
           'content-type':'application/json'

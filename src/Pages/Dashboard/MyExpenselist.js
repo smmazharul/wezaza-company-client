@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { signOut } from 'firebase/auth';
+import { FaEdit } from 'react-icons/fa';
 
 const MyExpenselist = () => {
     const [expenselist,setEpenselist]=useState([]);
     const [depositMe,setDepositMe]=useState([]);
     const [user] = useAuthState(auth);
+    
     const navigate = useNavigate()
     useEffect(() => {
         if (user) {
@@ -50,7 +52,7 @@ const MyExpenselist = () => {
 
     useEffect(() => {
       if (user) {
-          fetch(`http://localhost:5000/depositamount?empoyeeEmail=${user.email}`, {
+          fetch(`https://young-fortress-58661.herokuapp.com/depositamount?empoyeeEmail=${user.email}`, {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -105,6 +107,7 @@ const MyExpenselist = () => {
         <th>Unit Cost</th>
         <th>Quantity</th>
         <th>Subtotal</th>
+        <th>Edit</th>
       </tr>
     </thead>
     <tbody>
@@ -119,7 +122,7 @@ const MyExpenselist = () => {
         <td>{expense.usnitCost}</td>
         <td>{expense.quantity} </td>
         <td>{expense.usnitCost * expense.quantity}</td>
-        
+        <td className='text-secondary'><Link to={`/dashboard/myexpense/${expense._id}`}><FaEdit></FaEdit></Link></td>
       </tr>
 
         ))
