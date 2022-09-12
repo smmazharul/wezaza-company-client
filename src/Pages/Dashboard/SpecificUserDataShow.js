@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
+import ReactHTMLTableToExcel from 'react-html-table-to-excel';
 
 const SpecificUserDataShow = () => {
   const { email } = useParams();
@@ -70,13 +71,21 @@ const months=[
           months.map(m=><option value={m.name} key={m.id}>{m.name}</option>)
         }
       </select>
+      <ReactHTMLTableToExcel
+                    id="test-table-xls-button"
+                    className="download-table-xls-button btn btn-secondary mb-2  "
+                    table="table-to-xls"
+                    filename="tablexls"
+                    sheet="tablexls"
+                    buttonText="Download as XLS"/>
 
       <div className="overflow-x-auto">
-        <table className="table w-full">
+      
+        <table className="table w-full" id="table-to-xls">
           {/* <!-- head --> */}
           <thead>
             <tr>
-              <th></th>
+              <th>SL</th>
               <th>Empoyee Name</th>
               <th>Date</th>
               <th>Item Name</th>

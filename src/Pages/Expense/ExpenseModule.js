@@ -2,6 +2,7 @@ import React from "react";
 import { format } from "date-fns";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
+import { toast } from "react-toastify";
 // import { toast } from 'react-toastify';
 
 const ExpenseModule = ({ date, expense ,setExpense}) => {
@@ -36,6 +37,10 @@ const ExpenseModule = ({ date, expense ,setExpense}) => {
       .then(res => res.json())
       .then(data => {
         // console.log(data);
+        if (data) {
+                
+          toast.success(`Successfully Submit`);
+      }
         setExpense(null)
       })
 

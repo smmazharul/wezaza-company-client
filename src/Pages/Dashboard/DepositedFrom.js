@@ -5,9 +5,10 @@ import { format } from "date-fns";
 import { DayPicker } from "react-day-picker";
 import {Outlet} from 'react-router-dom'
 import DepostiListMe from './DepostiListMe';
+import { toast } from 'react-toastify';
 
 const DepositedFrom = () => {
-    const [depostAmount,setDepositAmount]=useState('')
+    const [depostAmount,setDepositAmount]=useState(null)
     const [date, setDate] = useState(new Date());
     const [user] = useAuthState(auth);
 
@@ -35,7 +36,11 @@ const handleSubmitDepositme=e=>{
         .then(res => res.json())
         .then(data => {
           // console.log(data);
-          setDepositAmount('')
+          if (data) {
+                
+            toast.success(`Successfully Submit`);
+        }
+          setDepositAmount(null)
         })
   
 }

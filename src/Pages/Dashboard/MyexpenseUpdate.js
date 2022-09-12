@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const MyexpenseUpdate = () => {
     const {id}=useParams()
     const [updateExpense, setUpdateExpense] = useState({});
-    
+    console.log(updateExpense)
     useEffect( () =>{
         const url = `https://young-fortress-58661.herokuapp.com/dashboard/myexpense/${id}`;
         fetch(url)
@@ -30,10 +31,19 @@ const MyexpenseUpdate = () => {
             },
             body: JSON.stringify(updatedExpense)
         })
-        .then(res => res.json())
+        .then(res => {
+            if(res.status === 403){
+                toast.error('Failed to Update');
+            }
+            return res.json()})
         .then(data =>{
-            console.log('success', data);
+            // console.log('success', data);
             alert('users added successfully!!!');
+            if (data.result.modifiedCount > 0) {
+                
+                toast.success(`Successfully Updated`);
+            }
+            
             event.target.reset();
         })
     }
