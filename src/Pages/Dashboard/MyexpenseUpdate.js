@@ -7,7 +7,7 @@ const MyexpenseUpdate = () => {
     const [updateExpense, setUpdateExpense] = useState({});
     console.log(updateExpense)
     useEffect( () =>{
-        const url = `https://young-fortress-58661.herokuapp.com/dashboard/myexpense/${id}`;
+        const url = `https://wezaza-company-server1.onrender.com/dashboard/myexpense/${id}`;
         fetch(url)
         .then(res => res.json())
         .then(data => setUpdateExpense(data));
@@ -23,7 +23,7 @@ const MyexpenseUpdate = () => {
         const updatedExpense = {itemName, specialNote,usnitCost,quantity};
 
         // send data to the server
-        const url = `https://young-fortress-58661.herokuapp.com/dashboard/myexpense/${id}`;
+        const url = `https://wezaza-company-server1.onrender.com/dashboard/myexpense/${id}`;
         fetch(url, {
             method: 'PUT',
             headers: {

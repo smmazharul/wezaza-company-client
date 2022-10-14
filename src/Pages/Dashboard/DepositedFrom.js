@@ -26,7 +26,7 @@ const handleSubmitDepositme=e=>{
         
       }
   
-      fetch('https://young-fortress-58661.herokuapp.com/depositamount', {
+      fetch('https://wezaza-company-server1.onrender.com/depositamount', {
         method: "POST",
         headers: {
           'content-type':'application/json'
@@ -37,7 +37,7 @@ const handleSubmitDepositme=e=>{
         .then(data => {
           // console.log(data);
           if (data) {
-                
+               console.log(data) 
             toast.success(`Successfully Submit`);
         }
           setDepositAmount(null)

@@ -14,7 +14,7 @@ const SpecificUserData = () => {
 //   const {email}=user
 
 
-    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('https://young-fortress-58661.herokuapp.com/user', {
+    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('https://wezaza-company-server1.onrender.com/user', {
         method: 'GET',
         headers:{
             authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -28,7 +28,7 @@ const SpecificUserData = () => {
 
 
     const handledata=(email)=>{
-      fetch(`https://young-fortress-58661.herokuapp.com/expenselist/expense?empoyeeEmail=${email}`)
+      fetch(`https://wezaza-company-server1.onrender.com/expenselist/expense?empoyeeEmail=${email}`)
       .then(res=>res.json())
       .then(data=>setUserExpense(data))
   }

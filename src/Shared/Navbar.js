@@ -3,8 +3,10 @@ import React from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { Link } from "react-router-dom";
 import auth from "../firebase.init";
+import useAdmin from "../hooks/useAdmin";
 const Navbar = () => {
   const [user] = useAuthState(auth);
+ const [admin]=useAdmin(user)
   // console.log(user)
   const logout = () => {
     signOut(auth);
@@ -18,6 +20,10 @@ const Navbar = () => {
       <li>
         <Link to="expense">Expense</Link>
       </li>
+      {
+        admin && <li><Link to='/chemical'>Chemical  </Link></li>
+      }
+      
       {
         user && <li><Link to='/dashboard'>Dashboard </Link></li>
       }

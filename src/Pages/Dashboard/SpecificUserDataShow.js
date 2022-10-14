@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import ReactHTMLTableToExcel from 'react-html-table-to-excel';
+import ReactHTMLTableToExcel from "react-html-table-to-excel";
 
 const SpecificUserDataShow = () => {
   const { email } = useParams();
@@ -10,7 +10,7 @@ const SpecificUserDataShow = () => {
   const [displayProducts, setDisplayProducts] = useState([]);
   useEffect(() => {
     fetch(
-      `https://young-fortress-58661.herokuapp.com/expenselist/expense?empoyeeEmail=${email}`
+      `https://wezaza-company-server1.onrender.com/expenselist/expense?empoyeeEmail=${email}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -20,32 +20,31 @@ const SpecificUserDataShow = () => {
       });
   }, [email]);
 
-
-const months=[
-  {id:1,name:"Jan"},
-  {id:2,name:"Feb"},
-  {id:3,name:"Mar"},
-  {id:4,name:"Apr"},
-  {id:5,name:"May"},
-  {id:6,name:"Jun"},
-  {id:7,name:"Jul"},
-  {id:8,name:"Aug"},
-  {id:9,name:"Sep"},
-  {id:10,name:"Oct"},
-  {id:11,name:"Nov"},
-  {id:12,name:"Dec"},
-]
-
+  const months = [
+    { id: 1, name: "Jan" },
+    { id: 2, name: "Feb" },
+    { id: 3, name: "Mar" },
+    { id: 4, name: "Apr" },
+    { id: 5, name: "May" },
+    { id: 6, name: "Jun" },
+    { id: 7, name: "Jul" },
+    { id: 8, name: "Aug" },
+    { id: 9, name: "Sep" },
+    { id: 10, name: "Oct" },
+    { id: 11, name: "Nov" },
+    { id: 12, name: "Dec" },
+  ];
 
   const handleSearch = (event) => {
     const searchText = event.target.value;
-    console.log(searchText)
-   
-    const matchedProducts = displayProducts.filter((expense) =>expense?.date?.includes(searchText));
+    console.log(searchText);
+
+    const matchedProducts = displayProducts.filter((expense) =>
+      expense?.date?.includes(searchText)
+    );
     setDisplayProducts(matchedProducts);
   };
 
- 
   let total = 0;
   for (const cost of displayProducts) {
     const unitCost = cost.usnitCost;
@@ -63,24 +62,30 @@ const months=[
         className="mb-2 input border-2 border-accent  w-full max-w-xs "
       /> */}
 
-      <select  onChange={handleSearch} defaultValue={'DEFAULT'} className="select w-full max-w-xs">
-        <option value='DEFAULT' disabled selected>
+      <select
+        onChange={handleSearch}
+        defaultValue={"DEFAULT"}
+        className="select w-full max-w-xs"
+      >
+        <option value="DEFAULT" disabled selected>
           Pick your Month
         </option>
-        {
-          months.map(m=><option value={m.name} key={m.id}>{m.name}</option>)
-        }
+        {months.map((m) => (
+          <option value={m.name} key={m.id}>
+            {m.name}
+          </option>
+        ))}
       </select>
       <ReactHTMLTableToExcel
-                    id="test-table-xls-button"
-                    className="download-table-xls-button btn btn-secondary mb-2  "
-                    table="table-to-xls"
-                    filename="tablexls"
-                    sheet="tablexls"
-                    buttonText="Download as XLS"/>
+        id="test-table-xls-button"
+        className="download-table-xls-button btn btn-secondary mb-2  "
+        table="table-to-xls"
+        filename="tablexls"
+        sheet="tablexls"
+        buttonText="Download as XLS"
+      />
 
       <div className="overflow-x-auto">
-      
         <table className="table w-full" id="table-to-xls">
           {/* <!-- head --> */}
           <thead>

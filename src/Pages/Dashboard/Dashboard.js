@@ -25,11 +25,13 @@ const Dashboard = () => {
       {/* <!-- Sidebar content here --> */}
       <li className='text-secondary bg-accent rounded-md mt-2'><Link to='/dashboard'>My Expenses</Link></li>
       <li className='text-secondary bg-accent rounded-md mt-2'><Link to='/dashboard/depositme'>Deposit Me</Link></li>
+      <li className='text-secondary bg-accent rounded-md mt-2'><Link to='/dashboard/sales'>Sales</Link></li>
       
        {admin && < >
        <li className='text-secondary bg-accent rounded-md mt-2'><Link to='/dashboard/users'>All Users</Link></li>
        <li className='text-secondary bg-accent rounded-md mt-2'><Link to='/dashboard/expenseall'>All Expense</Link></li>
        <li className='text-secondary bg-accent rounded-md mt-2'><Link to='/dashboard/specificuser'>User Expenses</Link></li>
+       <li className='text-secondary bg-accent rounded-md mt-2'><Link to='/dashboard/ChemicalProducts'>Chemical Products</Link></li>
        </>
         }
       

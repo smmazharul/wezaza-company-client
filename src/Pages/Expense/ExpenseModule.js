@@ -27,7 +27,7 @@ const ExpenseModule = ({ date, expense ,setExpense}) => {
       quantity:e.target.quantity.value,
     }
 
-    fetch('https://young-fortress-58661.herokuapp.com/expenselist', {
+    fetch('https://wezaza-company-server1.onrender.com/expenselist', {
       method: "POST",
       headers: {
         'content-type':'application/json'

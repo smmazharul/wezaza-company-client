@@ -8,7 +8,7 @@ const AllUserExpense = () => {
     const [displayProducts, setDisplayProducts] = useState([]);
    
     useEffect(()=>{
-        fetch('https://young-fortress-58661.herokuapp.com/expenseall')
+        fetch('https://wezaza-company-server1.onrender.com/expenseall')
         .then(res=>res.json())
         .then(data=>{
             setAllUserExpense(data)

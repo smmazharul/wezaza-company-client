@@ -10,7 +10,7 @@ const DepostiListMe = () => {
     const navigate = useNavigate()
     useEffect(() => {
         if (user) {
-            fetch(`https://young-fortress-58661.herokuapp.com/depositamount?empoyeeEmail=${user.email}`, {
+            fetch(`https://wezaza-company-server1.onrender.com/depositamount?empoyeeEmail=${user.email}`, {
               method: 'GET',
               headers: {
                   'authorization': `Bearer ${localStorage.getItem('accessToken')}`

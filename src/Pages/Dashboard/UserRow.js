@@ -6,7 +6,7 @@ const UserRow = ({ user, refetch,index }) => {
     const { email, role } = user;
     
     const makeAdmin = () => {
-        fetch(`https://young-fortress-58661.herokuapp.com/user/admin/${email}`, {
+        fetch(`https://wezaza-company-server1.onrender.com/user/admin/${email}`, {
             method: 'PUT',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
