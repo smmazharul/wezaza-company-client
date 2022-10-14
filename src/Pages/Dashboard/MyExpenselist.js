@@ -3,7 +3,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import { Link, useNavigate } from "react-router-dom";
 import { signOut } from "firebase/auth";
-import { FaEdit } from "react-icons/fa";
+import { FaEdit,FaTrashAlt } from "react-icons/fa";
 import { toast } from "react-toastify";
 
 const MyExpenselist = () => {
@@ -153,7 +153,7 @@ const MyExpenselist = () => {
                 </td>
                 <td>
                   <button onClick={() => handleMyExpenseDelete(expense._id)}>
-                    X
+                    <FaTrashAlt/>
                   </button>
                 </td>
               </tr>
